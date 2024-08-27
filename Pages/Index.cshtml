@@ -1,0 +1,23 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Chess Game";
+}
+
+<h2>Chess Game</h2>
+<div id="gameBoard">
+    @for (int i = 0; i < 5; i++)
+    {
+        <div class="row">
+            @for (int j = 0; j < 5; j++)
+            {
+                <div class="cell" data-x="@i" data-y="@j">
+                    @Model.Game.Board[i, j]
+                </div>
+            }
+        </div>
+    }
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft.signalr/3.1.0/signalr.min.js"></script>
+<script src="~/js/game.js"></script>
